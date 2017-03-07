@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="weatherData"
+            type="com.android.jason.baiduweather.model.bean.WeatherData" />
+    </data>
+
+
+        <LinearLayout
+            style="@style/CardView.Content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#c0c0c0"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@{weatherData.date.length() > 2? weatherData.today : weatherData.date}"
+                android:textColor="@color/secondary_text"
+                android:singleLine="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@{weatherData.weather}"
+                android:textColor="@color/secondary_text" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                fresco:roundAsCircle="true"
+                fresco:roundedCornerRadius="10dp"
+                fresco:actualImageScaleType="centerInside"
+                fresco:failureImage="@mipmap/ic_launcher"
+                android:src="@{weatherData.dayPictureUrl}"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@{weatherData.temperature}"
+                android:textColor="@color/secondary_text" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                fresco:roundAsCircle="true"
+                fresco:roundedCornerRadius="10dp"
+                fresco:actualImageScaleType="centerInside"
+                fresco:failureImage="@mipmap/ic_launcher"
+                android:src="@{weatherData.nightPictureUrl}"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@{weatherData.wind}"
+                android:textColor="@color/secondary_text" />
+
+        </LinearLayout>
+
+</layout>
